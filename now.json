@@ -1,5 +1,5 @@
 {
   "name": "react-timeline-site",
   "version": 2,
-  "builds": [{ "src": "/demos/mario.js", "use": "@now/node-server" }]
+  "builds": [{ "src": "package.json", "use": "@now/next" }]
 }
