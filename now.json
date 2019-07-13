@@ -1,3 +1,4 @@
 {
-  "builds": [{ "src": "index.js", "use": "@now/node" }]
+  "name": "react-timeline-site",
+  "version": 2
 }
