@@ -1,5 +1,6 @@
 {
   "name": "react-timeline-site",
   "version": 2,
-  "builds": [{ "src": "package.json", "use": "@now/next" }]
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "alias": ["react-timeline.com", "reacttimeline.com"]
 }
