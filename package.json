@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "@merc/react-timeline": "^0.1.13",
+    "@sentry/browser": "^5.5.0",
+    "@zeit/next-source-maps": "0.0.3",
     "next": "^9.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
