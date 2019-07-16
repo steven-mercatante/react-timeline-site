@@ -24,6 +24,13 @@ export default class MyDocument extends Document {
             <NextScript />
           </body>
         </Head>
+        <style jsx global>{`
+          body {
+            background: #000;
+            font: 14px menlo;
+            color: #fff;
+          }
+        `}</style>
       </Html>
     );
   }
