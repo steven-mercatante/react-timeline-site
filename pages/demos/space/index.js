@@ -18,7 +18,14 @@ const events = [
     date: "April 13, 1970",
     src: "/static/images/space/apollo-13.png",
     text:
-      "An explosion ruptures thecommand module of Apollo 13, days after launch and within reach of the moon. Abandoning the mission to save their lives, the astronauts climb into the Lunar Module and slingshot around the Moon to speed their return back to Earth."
+      "An explosion ruptures the command module of Apollo 13, days after launch and within reach of the moon. Abandoning the mission to save their lives, the astronauts climb into the Lunar Module and slingshot around the Moon to speed their return back to Earth.",
+    credit: "sup"
+  },
+  {
+    type: "twitter",
+    date: "July 1, 2019",
+    id: "1145741202936881152",
+    text: "#hello world"
   }
 ];
 
@@ -26,14 +33,14 @@ export default function Index() {
   return (
     <div className="container">
       <Timeline events={events} />
-      {/* <style jsx>{`
+      <style jsx>{`
         .container {
-          // width: 100%;
-          height: 100vh;
+          height: 100%;
           background-image: url(/static/images/space/bg.jpg);
           background-size: cover;
+          background-position: 50%;
         }
-      `}</style> */}
+      `}</style>
     </div>
   );
 }
