@@ -50,6 +50,13 @@ export default class MyDocument extends Document {
             background: #000;
             font: 14px menlo;
             color: #fff;
+            margin: 0;
+            padding: 0;
+          }
+
+          .timeline.space-exploration .my-custom-node .node-content {
+            // display: none !important;
+            background-color: red;
           }
         `}</style>
       </Html>
