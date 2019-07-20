@@ -1,4 +1,4 @@
-import Timeline, { themes } from "@merc/react-timeline";
+import Timeline, { CardWrapper } from "@merc/react-timeline";
 
 const events = [
   {
@@ -10,8 +10,17 @@ const events = [
     \n
     \n\-- _some famous person_`,
     buttons: [
-      { url: "http://reactjs.org", label: "Click me!", cssClass: "some-link" },
-      { label: "HELLO!", cssClass: "foo" }
+      {
+        url: "http://reactjs.org",
+        label: "Click me!",
+        cssClass: "some-link",
+        css: { backgroundColor: "rebeccapurple", border: "10px solid blue" }
+      },
+      {
+        label: "HELLO!",
+        cssClass: "foo",
+        css: `background-color: papayawhip; border: 3px solid cyan;`
+      }
     ]
   },
   {
@@ -19,7 +28,7 @@ const events = [
     date: "May 25, 1961",
     text:
       "In a speech before Congress, President John Kennedy announces that an American will land on the moon and be returned safely to Earth before the end of the decade."
-    // component: CustomNode,
+    // component: CustomCard
     // opts: { cssClass: "my-custom-node" }
   },
   {
@@ -36,7 +45,8 @@ const events = [
     text:
       "An explosion ruptures the command module of Apollo 13, days after launch and within reach of the moon. Abandoning the mission to save their lives, the astronauts climb into the Lunar Module and slingshot around the Moon to speed their return back to Earth.",
     credit: "sup",
-    buttons: [{ url: "http://reactjs.org", label: "Click me!" }]
+    buttons: [{ url: "http://reactjs.org", label: "Click me!" }],
+    css: { display: "none" }
   },
   {
     type: "twitter",
@@ -47,18 +57,20 @@ const events = [
   }
 ];
 
-function CustomNode({ event }) {
+function CustomCard({ event }) {
   return (
-    <div className="my-custom-node">
-      <h1>Hello from CustomNode!</h1>
-      <p>{event.text}</p>
-    </div>
+    <CardWrapper>
+      <div className="my-custom-node">
+        <h1>Hello from CustomNode!</h1>
+        <p>{event.text}</p>
+      </div>
+    </CardWrapper>
   );
 }
 
 const customTheme = {
   track: {
-    backgroundColor: "cyan"
+    // backgroundColor: "cyan"
   },
   buttons: {
     backgroundColor: "cyan",
@@ -70,7 +82,15 @@ const customTheme = {
   }
 };
 
-const opts = { inlineTimestamp: false, animationsEnabled: false };
+const opts = {
+  animationsEnabled: false,
+  layout: "alternateEvents",
+  // layout: "alternateEventsInlineDate",
+  // layout: "inlineEvents",
+  // layout: "inlineEventsInlineDate",
+  responsiveLayout: "inlineEventsInlineDate"
+  // responsiveLayout: "inlineEvents"
+};
 
 export default function Index() {
   return (
