@@ -70,14 +70,13 @@ function CustomCard({ event }) {
 
 const customTheme = {
   track: {
-    // backgroundColor: "cyan"
+    // backgroundColor: "white"
   },
   buttons: {
     backgroundColor: "cyan",
     color: "#000"
   },
   eventContent: {
-    //  minWidth: "50%"
     flexGrow: 1
   }
 };
