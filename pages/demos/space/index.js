@@ -1,70 +1,29 @@
-import Timeline, { CardWrapper } from "@merc/react-timeline";
-
-const events = [
-  {
-    type: "text",
-    date: "1/1/2019",
-    text: `This one has buttons!
-    \nsup?
-    \n> this is a quote
-    \n
-    \n\-- _some famous person_`,
-    buttons: [
-      {
-        url: "http://reactjs.org",
-        label: "Click me!",
-        cssClass: "some-link",
-        css: { backgroundColor: "rebeccapurple", border: "10px solid blue" }
-      },
-      {
-        label: "HELLO!",
-        cssClass: "foo",
-        css: `background-color: papayawhip; border: 3px solid cyan;`
-      }
-    ]
-  },
-  {
-    type: "text",
-    date: "May 25, 1961",
-    text:
-      "In a speech before Congress, President John Kennedy announces that an American will land on the moon and be returned safely to Earth before the end of the decade."
-    // component: CustomCard
-    // opts: { cssClass: "my-custom-node" }
-  },
-  {
-    type: "youtube",
-    date: "July 20, 1969",
-    id: "Zd2D3MKX3YE",
-    text: `Six **years** after U.S. President John F. Kennedy's assassination, the Apollo 11 crew lands on the Moon, fulfilling his promise to put an American there by the end of the decade and return him safely to Earth. `,
-    buttons: [{ url: "http://reactjs.org", label: "Click me!" }]
-  },
-  {
-    type: "image",
-    date: "April 13, 1970",
-    src: "/static/images/space/apollo-13.png",
-    text:
-      "An explosion ruptures the command module of Apollo 13, days after launch and within reach of the moon. Abandoning the mission to save their lives, the astronauts climb into the Lunar Module and slingshot around the Moon to speed their return back to Earth.",
-    credit: "sup",
-    buttons: [{ url: "http://reactjs.org", label: "Click me!" }],
-    css: { display: "none" }
-  },
-  {
-    type: "twitter",
-    date: "July 1, 2019",
-    id: "1145741202936881152",
-    text: "#hello world",
-    buttons: [{ url: "http://reactjs.org", label: "Click me!" }]
-  }
-];
+import Timeline, {
+  Button,
+  Card,
+  Events,
+  Event,
+  EventMarker,
+  ImageCard,
+  ImageEvent,
+  TextAtom,
+  TextCard,
+  TextEvent,
+  TweetAtom,
+  TweetEvent,
+  YouTubeAtom,
+  YouTubeCard,
+  YouTubeEvent
+} from "@merc/react-timeline";
 
 function CustomCard({ event }) {
   return (
-    <CardWrapper>
+    <Card>
       <div className="my-custom-node">
         <h1>Hello from CustomNode!</h1>
         <p>{event.text}</p>
       </div>
-    </CardWrapper>
+    </Card>
   );
 }
 
@@ -91,16 +50,92 @@ const opts = {
   // responsiveLayout: "inlineEvents"
 };
 
+function CustomDate({ children }) {
+  return (
+    <time>
+      <h3>{children}</h3>
+    </time>
+  );
+}
+
+function CustomMarker(props) {
+  // return <div>CUSTOM MARKER</div>;
+  return <EventMarker {...props} />;
+}
+
 export default function Index() {
   return (
     <div className="container">
       <Timeline
         className="space-exploration"
-        events={events}
         theme={customTheme}
         // theme="ROLI"
         opts={opts}
-      />
+      >
+        <Events>
+          <TextEvent
+            // date="1/1/19"
+            // date={() => <CustomDate>1/1/19</CustomDate>}
+            date={<CustomDate>1/1/19</CustomDate>}
+            marker={<CustomMarker />}
+            text="**hello** *world* hmm this is kind of cool"
+          >
+            <div>
+              <Button as="a" href="https://google.com" target="_blank">
+                CLICK ME
+              </Button>
+              <Button onClick={() => alert("CLICKED!")}>Alert!</Button>
+            </div>
+          </TextEvent>
+
+          <TweetEvent
+            date="x"
+            id="20"
+            text="cool tweet!"
+            marker={<CustomMarker />}
+          >
+            <div>
+              <Button>CLICK ME</Button>
+            </div>
+          </TweetEvent>
+
+          <ImageEvent
+            date="April 13, 1970"
+            src="/static/images/space/apollo-13.png"
+            text="weeee, rockets!"
+            credit="sup"
+            marker={<CustomMarker />}
+          >
+            <div>
+              <Button>CLICK ME</Button>
+            </div>
+          </ImageEvent>
+
+          <YouTubeEvent
+            date="???"
+            id="Zd2D3MKX3YE"
+            text="lol"
+            marker={<CustomMarker />}
+          >
+            <div>
+              <Button>CLICK ME</Button>
+            </div>
+          </YouTubeEvent>
+
+          <Event date="Tomorrow!">
+            <Card date="Tomorrow!">
+              <h1>you can literally put anything here</h1>
+              <YouTubeAtom id="Zd2D3MKX3YE" />
+              <TweetAtom id="100" />
+              <TextAtom text="here's **some more** shit" />
+              <p>and yet more!qa</p>
+              <div>
+                <Button>CLICK ME</Button>
+              </div>
+            </Card>
+          </Event>
+        </Events>
+      </Timeline>
       <style jsx>{`
         .container {
           height: 100%;
