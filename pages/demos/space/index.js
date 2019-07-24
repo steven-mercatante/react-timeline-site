@@ -108,6 +108,7 @@ export default function Index() {
             <ImageEvent
               date="April 13, 1970"
               src="/static/images/space/apollo-13.png"
+              alt="apollo 13"
               text="weeee, rockets!"
               credit="sup"
               marker={<CustomMarker />}
@@ -120,6 +121,7 @@ export default function Index() {
             <YouTubeEvent
               date="???"
               id="Zd2D3MKX3YE"
+              name="demo vide"
               text="lol"
               marker={<CustomMarker />}
             >
@@ -131,7 +133,7 @@ export default function Index() {
             <Event date="Tomorrow!">
               <Card date="Tomorrow!">
                 <h1>you can literally put anything here</h1>
-                <YouTubeAtom id="Zd2D3MKX3YE" />
+                <YouTubeAtom id="Zd2D3MKX3YE" name="demo video 2" />
                 <TweetAtom id="100" />
                 <TextAtom text="here's **some more** shit" />
                 <p>and yet more!qa</p>
@@ -146,7 +148,7 @@ export default function Index() {
           .container {
             height: 100%;
             background-color: #000;
-            // background-image: url(/static/images/space/bg.jpg);
+            background-image: url(/static/images/space/bg.jpg);
             background-size: cover;
             background-position: 50%;
           }
