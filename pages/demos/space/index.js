@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Timeline, {
   Button,
   Card,
@@ -65,86 +66,92 @@ function CustomMarker(props) {
 
 export default function Index() {
   return (
-    <div className="container">
-      <Timeline
-        className="space-exploration"
-        theme={customTheme}
-        // theme="ROLI"
-        opts={opts}
-      >
-        <Events>
-          <TextEvent
-            // date="1/1/19"
-            // date={() => <CustomDate>1/1/19</CustomDate>}
-            date={<CustomDate>1/1/19</CustomDate>}
-            marker={<CustomMarker />}
-            text="**hello** *world* hmm this is kind of cool"
-          >
-            <div>
-              <Button as="a" href="https://google.com" target="_blank">
-                CLICK ME
-              </Button>
-              <Button onClick={() => alert("CLICKED!")}>Alert!</Button>
-            </div>
-          </TextEvent>
+    <React.Fragment>
+      <Head>
+        <title>Demos | Space Exploration</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className="container">
+        <Timeline
+          className="space-exploration"
+          theme={customTheme}
+          // theme="ROLI"
+          opts={opts}
+        >
+          <Events>
+            <TextEvent
+              // date="1/1/19"
+              // date={() => <CustomDate>1/1/19</CustomDate>}
+              date={<CustomDate>1/1/19</CustomDate>}
+              marker={<CustomMarker />}
+              text="**hello** *world* hmm this is kind of cool"
+            >
+              <div>
+                <Button as="a" href="https://google.com" target="_blank">
+                  CLICK ME
+                </Button>
+                <Button onClick={() => alert("CLICKED!")}>Alert!</Button>
+              </div>
+            </TextEvent>
 
-          <TweetEvent
-            date="x"
-            id="20"
-            text="cool tweet!"
-            marker={<CustomMarker />}
-          >
-            <div>
-              <Button>CLICK ME</Button>
-            </div>
-          </TweetEvent>
-
-          <ImageEvent
-            date="April 13, 1970"
-            src="/static/images/space/apollo-13.png"
-            text="weeee, rockets!"
-            credit="sup"
-            marker={<CustomMarker />}
-          >
-            <div>
-              <Button>CLICK ME</Button>
-            </div>
-          </ImageEvent>
-
-          <YouTubeEvent
-            date="???"
-            id="Zd2D3MKX3YE"
-            text="lol"
-            marker={<CustomMarker />}
-          >
-            <div>
-              <Button>CLICK ME</Button>
-            </div>
-          </YouTubeEvent>
-
-          <Event date="Tomorrow!">
-            <Card date="Tomorrow!">
-              <h1>you can literally put anything here</h1>
-              <YouTubeAtom id="Zd2D3MKX3YE" />
-              <TweetAtom id="100" />
-              <TextAtom text="here's **some more** shit" />
-              <p>and yet more!qa</p>
+            <TweetEvent
+              date="x"
+              id="20"
+              text="cool tweet!"
+              marker={<CustomMarker />}
+            >
               <div>
                 <Button>CLICK ME</Button>
               </div>
-            </Card>
-          </Event>
-        </Events>
-      </Timeline>
-      <style jsx>{`
-        .container {
-          height: 100%;
-          background-color: #000;
-          // background-image: url(/static/images/space/bg.jpg);
-          background-size: cover;
-          background-position: 50%;
-        }
-      `}</style>
-    </div>
+            </TweetEvent>
+
+            <ImageEvent
+              date="April 13, 1970"
+              src="/static/images/space/apollo-13.png"
+              text="weeee, rockets!"
+              credit="sup"
+              marker={<CustomMarker />}
+            >
+              <div>
+                <Button>CLICK ME</Button>
+              </div>
+            </ImageEvent>
+
+            <YouTubeEvent
+              date="???"
+              id="Zd2D3MKX3YE"
+              text="lol"
+              marker={<CustomMarker />}
+            >
+              <div>
+                <Button>CLICK ME</Button>
+              </div>
+            </YouTubeEvent>
+
+            <Event date="Tomorrow!">
+              <Card date="Tomorrow!">
+                <h1>you can literally put anything here</h1>
+                <YouTubeAtom id="Zd2D3MKX3YE" />
+                <TweetAtom id="100" />
+                <TextAtom text="here's **some more** shit" />
+                <p>and yet more!qa</p>
+                <div>
+                  <Button>CLICK ME</Button>
+                </div>
+              </Card>
+            </Event>
+          </Events>
+        </Timeline>
+        <style jsx>{`
+          .container {
+            height: 100%;
+            background-color: #000;
+            // background-image: url(/static/images/space/bg.jpg);
+            background-size: cover;
+            background-position: 50%;
+          }
+        `}</style>
+      </div>
+    </React.Fragment>
   );
 }
