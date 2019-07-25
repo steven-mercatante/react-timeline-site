@@ -54,6 +54,70 @@ const theme1 = {
   }
 };
 
+const theme2 = {
+  timeline: {
+    backgroundColor: "#1D1D1D"
+  },
+  timelineTrack: {
+    backgroundColor: "#fff",
+    boxShadow: "none"
+  },
+  event: {
+    ":nth-child(even) .card-col.alternate-events .card": {
+      "align-items": "flex-end"
+    }
+  },
+  eventCardColumn: {
+    // border: "1px solid red"
+  },
+  card: {
+    backgroundColor: "none",
+    border: "none",
+    padding: 0,
+    // color: "#000",
+    color: "#fff",
+    boxShadow: "none",
+    top: "6px",
+    marginBottom: "30px",
+    "&.inline-events-inline-date": {
+      top: "auto"
+    }
+  },
+  eventMarkerColumn: {
+    // border: "1px solid red",
+    justifyContent: "flex-start"
+  },
+  marker: {
+    border: "2px solid #fff",
+    backgroundColor: "#1D1D1D",
+    top: "4px"
+  },
+  dateContainer: {
+    margin: 0,
+    padding: 0
+  },
+  eventDateColumn: {
+    // border: "1px solid red",
+    justifyContent: "flex-start"
+  },
+  date: {
+    backgroundColor: "none",
+    margin: 0,
+    padding: 0,
+    fontSize: "1.5rem"
+  },
+  button: {
+    // backgroundColor: "#1AD4DB",
+    color: "#031C1D"
+  },
+  imageAtom: {
+    borderRadius: "10px"
+  },
+  youTubeAtom: {
+    borderRadius: "10px"
+  }
+};
+
 const opts = {
   animationsEnabled: true,
   layout: "alternateEvents",
@@ -87,7 +151,7 @@ export default function Index() {
       <div className="container">
         <Timeline
           className="space-exploration"
-          theme={theme1}
+          theme={theme2}
           // theme="ROLI"
           opts={opts}
         >
@@ -101,7 +165,8 @@ export default function Index() {
               date="6/11/18"
               id="1006202911632904197"
               text="I put together a resource for folks learning GraphQL"
-              tweetOpts={{ linkColor: "#FD7375" }}
+              // tweetOpts={{ linkColor: "#FD7375" }}
+              tweetOpts={{ linkColor: "#064443" }}
             >
               <div>
                 <Button as="a" href="https://graphqlstack.com" target="_blank">
