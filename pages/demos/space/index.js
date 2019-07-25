@@ -28,21 +28,34 @@ function CustomCard({ event }) {
   );
 }
 
-const customTheme = {
-  track: {
-    // backgroundColor: "white"
+const theme1 = {
+  timeline: {
+    backgroundColor: "#FE7071"
   },
-  buttons: {
-    backgroundColor: "cyan",
-    color: "#000"
+  timelineTrack: {
+    backgroundColor: "#fff"
   },
-  eventContent: {
-    flexGrow: 1
+  card: {
+    backgroundColor: "#FE9B9B",
+    color: "#fff"
+  },
+  marker: {
+    border: "2px dashed #fff",
+    backgroundColor: "#FE7071"
+  },
+  dateContainer: {
+    margin: 0,
+    padding: 0
+  },
+  date: {
+    backgroundColor: "none",
+    margin: 0,
+    padding: 0
   }
 };
 
 const opts = {
-  animationsEnabled: false,
+  animationsEnabled: true,
   layout: "alternateEvents",
   // layout: "alternateEventsInlineDate",
   // layout: "inlineEvents",
@@ -74,69 +87,61 @@ export default function Index() {
       <div className="container">
         <Timeline
           className="space-exploration"
-          theme={customTheme}
+          theme={theme1}
           // theme="ROLI"
           opts={opts}
         >
           <Events>
             <TextEvent
-              // date="1/1/19"
-              // date={() => <CustomDate>1/1/19</CustomDate>}
-              date={<CustomDate>1/1/19</CustomDate>}
-              marker={<CustomMarker />}
+              date="1/1/19"
               text="**hello** *world* hmm this is kind of cool"
-            >
-              <div>
-                <Button as="a" href="https://google.com" target="_blank">
-                  CLICK ME
-                </Button>
-                <Button onClick={() => alert("CLICKED!")}>Alert!</Button>
-              </div>
-            </TextEvent>
+            />
 
             <TweetEvent
-              date="x"
-              id="20"
-              text="cool tweet!"
-              marker={<CustomMarker />}
+              date="6/11/18"
+              id="1006202911632904197"
+              text="I put together a resource for folks learning GraphQL"
+              tweetOpts={{ linkColor: "#FD7375" }}
             >
               <div>
-                <Button>CLICK ME</Button>
+                <Button as="a" href="https://graphqlstack.com" target="_blank">
+                  Check it out!
+                </Button>
               </div>
             </TweetEvent>
 
             <ImageEvent
               date="April 13, 1970"
-              src="/static/images/space/apollo-13.png"
-              alt="apollo 13"
-              text="weeee, rockets!"
-              credit="sup"
+              src="https://images.unsplash.com/photo-1493839523149-2864fca44919?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1301&q=80"
+              alt="jellyfish swimming"
+              credit="Photo by [@tavi004](https://unsplash.com/@tavi004)"
               marker={<CustomMarker />}
             >
               <div>
-                <Button>CLICK ME</Button>
+                <Button
+                  as="a"
+                  href="https://unsplash.com/search/photos/undersea"
+                >
+                  View more undersea photos
+                </Button>
               </div>
             </ImageEvent>
 
             <YouTubeEvent
-              date="???"
-              id="Zd2D3MKX3YE"
-              name="demo vide"
-              text="lol"
+              date="6/18/19"
+              id="6UnRHtwHGSE"
+              name="demo video"
+              text="I learned how to make General Tso's Chicken!"
               marker={<CustomMarker />}
-            >
-              <div>
-                <Button>CLICK ME</Button>
-              </div>
-            </YouTubeEvent>
+            />
 
             <Event date="Tomorrow!">
-              <Card date="Tomorrow!">
+              <Card date="Tomorrow!" className="yolo">
                 <h1>you can literally put anything here</h1>
                 <YouTubeAtom id="Zd2D3MKX3YE" name="demo video 2" />
                 <TweetAtom id="100" />
                 <TextAtom text="here's **some more** shit" />
-                <p>and yet more!qa</p>
+                <p>and yet more!</p>
                 <div>
                   <Button>CLICK ME</Button>
                 </div>
@@ -147,10 +152,10 @@ export default function Index() {
         <style jsx>{`
           .container {
             height: 100%;
-            background-color: #000;
-            background-image: url(/static/images/space/bg.jpg);
-            background-size: cover;
-            background-position: 50%;
+            background-color: #f3f7f9;
+            // background-image: url(/static/images/space/bg.jpg);
+            // background-size: cover;
+            // background-position: 50%;
           }
         `}</style>
       </div>
