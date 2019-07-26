@@ -71,6 +71,7 @@ const theme2 = {
     // border: "1px solid red"
   },
   card: {
+    display: "none",
     backgroundColor: "none",
     border: "none",
     padding: 0,
@@ -119,13 +120,8 @@ const theme2 = {
 };
 
 const opts = {
-  animationsEnabled: true,
-  layout: "alternateEvents",
-  // layout: "alternateEventsInlineDate",
-  // layout: "inlineEvents",
-  // layout: "inlineEventsInlineDate",
-  responsiveLayout: "inlineEventsInlineDate"
-  // responsiveLayout: "inlineEvents"
+  animationsEnabled: false,
+  layout: "alt-evts" // alt-evts, alt-evts-inline-date, inline-evts, inline-evts-inline-date
 };
 
 function CustomDate({ children }) {
@@ -134,11 +130,6 @@ function CustomDate({ children }) {
       <h3>{children}</h3>
     </time>
   );
-}
-
-function CustomMarker(props) {
-  // return <div>CUSTOM MARKER</div>;
-  return <EventMarker {...props} />;
 }
 
 export default function Index() {
@@ -151,7 +142,7 @@ export default function Index() {
       <div className="container">
         <Timeline
           className="space-exploration"
-          theme={theme2}
+          // theme={theme2}
           // theme="ROLI"
           opts={opts}
         >
@@ -176,11 +167,10 @@ export default function Index() {
             </TweetEvent>
 
             <ImageEvent
-              date="April 13, 1970"
+              date="4/13/70"
               src="https://images.unsplash.com/photo-1493839523149-2864fca44919?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1301&q=80"
               alt="jellyfish swimming"
               credit="Photo by [@tavi004](https://unsplash.com/@tavi004)"
-              marker={<CustomMarker />}
             >
               <div>
                 <Button
@@ -197,21 +187,7 @@ export default function Index() {
               id="6UnRHtwHGSE"
               name="demo video"
               text="I learned how to make General Tso's Chicken!"
-              marker={<CustomMarker />}
             />
-
-            <Event date="Tomorrow!">
-              <Card date="Tomorrow!" className="yolo">
-                <h1>you can literally put anything here</h1>
-                <YouTubeAtom id="Zd2D3MKX3YE" name="demo video 2" />
-                <TweetAtom id="100" />
-                <TextAtom text="here's **some more** shit" />
-                <p>and yet more!</p>
-                <div>
-                  <Button>CLICK ME</Button>
-                </div>
-              </Card>
-            </Event>
           </Events>
         </Timeline>
         <style jsx>{`
