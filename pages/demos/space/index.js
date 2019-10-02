@@ -1,31 +1,23 @@
 import Head from "next/head";
 import Timeline, {
   Button,
-  Card,
+  UrlButton,
   Events,
   Event,
   EventMarker,
-  ImageCard,
+  ImageAtom,
   ImageEvent,
   TextAtom,
-  TextCard,
   TextEvent,
   TweetAtom,
   TweetEvent,
   YouTubeAtom,
-  YouTubeCard,
   YouTubeEvent
 } from "@merc/react-timeline";
 
-function CustomCard({ event }) {
-  return (
-    <Card>
-      <div className="my-custom-node">
-        <h1>Hello from CustomNode!</h1>
-        <p>{event.text}</p>
-      </div>
-    </Card>
-  );
+function CustomCard({ children }) {
+  return <h1>CUSTOM CARD</h1>;
+  return <div className="my-custom-card">{children}</div>;
 }
 
 const theme1 = {
@@ -120,8 +112,7 @@ const theme2 = {
 };
 
 const opts = {
-  animationsEnabled: false,
-  layout: "alt-evts" // alt-evts, alt-evts-inline-date, inline-evts, inline-evts-inline-date
+  layout: "inline-evts-inline-date" // alt-evts, alt-evts-inline-date, inline-evts, inline-evts-inline-date
 };
 
 function CustomDate({ children }) {
@@ -140,52 +131,27 @@ export default function Index() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="container">
-        <Timeline
-          className="space-exploration"
-          // theme={theme2}
-          // theme="ROLI"
-          opts={opts}
-        >
+        <Timeline>
           <Events>
-            <TextEvent
-              date="1/1/19"
-              text="**hello** *world* hmm this is kind of cool"
-            />
-
-            <TweetEvent
-              date="6/11/18"
-              id="1006202911632904197"
-              text="I put together a resource for folks learning GraphQL"
-              // tweetOpts={{ linkColor: "#FD7375" }}
-              tweetOpts={{ linkColor: "#064443" }}
-            >
-              <div>
-                <Button as="a" href="https://graphqlstack.com" target="_blank">
-                  Check it out!
-                </Button>
-              </div>
-            </TweetEvent>
+            <TextEvent date="1/1/19" text={`**Markdown** is *supported*`} />
 
             <ImageEvent
-              date="4/13/70"
-              src="https://images.unsplash.com/photo-1493839523149-2864fca44919?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1301&q=80"
+              date="2/14/19"
+              src="https://res.cloudinary.com/dovoq8jou/image/upload/v1564772194/jellyfish.jpg"
               alt="jellyfish swimming"
               credit="Photo by [@tavi004](https://unsplash.com/@tavi004)"
             >
               <div>
-                <Button
-                  as="a"
-                  href="https://unsplash.com/search/photos/undersea"
-                >
+                <UrlButton href="https://unsplash.com/search/photos/undersea">
                   View more undersea photos
-                </Button>
+                </UrlButton>
               </div>
             </ImageEvent>
 
             <YouTubeEvent
               date="6/18/19"
               id="6UnRHtwHGSE"
-              name="demo video"
+              name="General Tso's Chicken recipe"
               text="I learned how to make General Tso's Chicken!"
             />
           </Events>
