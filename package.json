@@ -15,7 +15,7 @@
     "@merc/react-timeline": "^0.1.23",
     "@sentry/browser": "^5.5.0",
     "@zeit/next-source-maps": "0.0.3",
-    "next": "^9.0.1",
+    "next": "^9.3.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.3.2"
